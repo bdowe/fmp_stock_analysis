@@ -1,0 +1,4 @@
+.serverless
+.vscode
+*.pyc
+config*
