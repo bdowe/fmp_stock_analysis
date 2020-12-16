@@ -1,0 +1,19 @@
+version: '3.8'
+
+services:
+  app:
+    build: .
+    ports:
+      - 5000:5000
+    volumes:
+      - ./src:/app
+  
+  serverless-cli:
+    build:
+      context: .
+      dockerfile: Dockerfile.serverless
+    volumes:
+      - ./:/app
+      - ~/.aws:/root/.aws
+    stdin_open: true # docker run -i
+    tty: true        # docker run -t
